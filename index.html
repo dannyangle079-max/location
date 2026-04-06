@@ -1,17 +1,14 @@
 <script>
-fetch("https://ipapi.co/json/")
+var apiKey = "DDEB2B70DB5637BDDDB4204E9C5CD7F1";
+fetch(`https://api.ip2location.io/?key=${apiKey}`)
   .then(res => res.json())
   .then(data => {
     console.log(data);
 
     document.body.innerHTML = `
-      <h2>IP Location</h2>
       <p>IP: ${data.ip}</p>
-      <p>City: ${data.city}</p>
-      <p>Region: ${data.region}</p>
+      <p>City: ${data.city_name}</p>
       <p>Country: ${data.country_name}</p>
-      <p>Latitude: ${data.latitude}</p>
-      <p>Longitude: ${data.longitude}</p>
     `;
   });
 </script>
